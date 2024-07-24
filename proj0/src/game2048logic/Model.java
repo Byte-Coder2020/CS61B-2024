@@ -124,6 +124,36 @@ public class Model {
      */
     public boolean atLeastOneMoveExists() {
         // TODO: Fill in this function.
+        // Situation 1:
+        if (this.emptySpaceExists() == true) {
+            return true;
+        }
+        // Situation 2:
+        int length = this.size();
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < length; j++) {
+                if ((i - 1) >= 0 && this.getBoard().tile(i, j) != null) {
+                    if (this.getBoard().tile(i,j).value() == this.getBoard().tile(i-1,j).value()) {
+                        return true;
+                    }
+                }
+                if ((i + 1) <= length - 1 && this.getBoard().tile(i, j) != null) {
+                    if (this.getBoard().tile(i,j).value() == this.getBoard().tile(i+1,j).value()) {
+                        return true;
+                    }
+                }
+                if ((j - 1) >= 0 && this.getBoard().tile(i, j) != null) {
+                    if (this.getBoard().tile(i,j).value() == this.getBoard().tile(i,j-1).value()) {
+                        return true;
+                    }
+                }
+                if ((j + 1) <= length - 1 && this.getBoard().tile(i, j) != null) {
+                    if (this.getBoard().tile(i,j).value() == this.getBoard().tile(i, j+1).value()) {
+                        return true;
+                    }
+                }
+            }
+        }
         return false;
     }
 

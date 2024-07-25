@@ -183,8 +183,10 @@ public class Model {
                 if (board.tile(x, r).value() == myValue && !board.tile(x, r).wasMerged()) {
                     targetY = r;
                     score += myValue*2;
+                    break;
+                } else {
+                    break;
                 }
-                break;
             } else {
                 targetY = r;
             }
@@ -199,10 +201,23 @@ public class Model {
      * */
     public void tiltColumn(int x) {
         // TODO: Task 7. Fill in this function.
+        int height = board.size();
+        // 从第二行开始看起
+        for (int r = height - 2; r >= 0; r--) {
+            if (board.tile(x, r) != null) {
+                moveTileUpAsFarAsPossible(x, r);
+            }
+        }
     }
 
     public void tilt(Side side) {
         // TODO: Tasks 8 and 9. Fill in this function.
+        board.setViewingPerspective(side);
+        int width = board.size();
+        for (int c = 0; c < width; c++) {
+            tiltColumn(c);
+        }
+        board.setViewingPerspective(Side.NORTH);
     }
 
     /** Tilts every column of the board toward SIDE.

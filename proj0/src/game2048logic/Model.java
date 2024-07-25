@@ -191,7 +191,9 @@ public class Model {
                 targetY = r;
             }
         }
-        board.move(x, targetY, currTile);
+        if (targetY != y) {
+            board.move(x, targetY, currTile);
+        }
     }
 
     /** Handles the movements of the tilt in column x of the board

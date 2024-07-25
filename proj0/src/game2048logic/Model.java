@@ -172,11 +172,24 @@ public class Model {
      *    and the trailing tile does not.
      */
     public void moveTileUpAsFarAsPossible(int x, int y) {
+        // TODO: Tasks 5, 6, and 10. Fill in this function.
         Tile currTile = board.tile(x, y);
         int myValue = currTile.value();
         int targetY = y;
 
-        // TODO: Tasks 5, 6, and 10. Fill in this function.
+        int height = size();
+        for (int r = y + 1; r < height; r++) {
+            if (board.tile(x, r) != null) {
+                if (board.tile(x, r).value() == myValue && !board.tile(x, r).wasMerged()) {
+                    targetY = r;
+
+                }
+                break;
+            } else {
+                targetY = r;
+            }
+        }
+        board.move(x, targetY, currTile);
     }
 
     /** Handles the movements of the tilt in column x of the board

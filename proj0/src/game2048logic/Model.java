@@ -182,7 +182,7 @@ public class Model {
             if (board.tile(x, r) != null) {
                 if (board.tile(x, r).value() == myValue && !board.tile(x, r).wasMerged()) {
                     targetY = r;
-
+                    score += myValue*2;
                 }
                 break;
             } else {

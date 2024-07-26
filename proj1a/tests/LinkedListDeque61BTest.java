@@ -57,4 +57,89 @@ public class LinkedListDeque61BTest {
      }
 
     // Below, you'll write your own tests for LinkedListDeque61B.
+
+    @Test
+    /** This test determine this list is empty or is noempty. */
+    public void testIsEmpty() {
+        Deque61B<Integer> lld1 = new LinkedListDeque61B<>();
+
+        assertThat(lld1.isEmpty()).isTrue();
+
+        lld1.addLast(1);
+        assertThat(lld1.isEmpty()).isFalse();
+    }
+
+    @Test
+    /** This test judges this list's size is zero,and one. */
+    public void testSize() {
+        Deque61B<Integer> lld1 = new LinkedListDeque61B<>();
+        int excepted = 0;
+        assertThat(lld1.size()).isEqualTo(excepted);
+
+        lld1.addLast(1);
+        excepted = 1;
+        assertThat(lld1.size()).isEqualTo(excepted);
+    }
+
+    @Test
+    /** Test get method when index is out of bounding for Empty list. */
+    public void testGetInEmptyList() {
+        Deque61B<Integer> lld1 = new LinkedListDeque61B<>();
+        assertThat(lld1.get(-1)).isNull();
+        assertThat(lld1.get(27138)).isNull();
+    }
+
+    @Test
+    /** Test get method when index is out of bounding for NO-Empty list. */
+    public void testGetInNoEmptyList() {
+        Deque61B<Integer> lld1 = new LinkedListDeque61B<>();
+        lld1.addLast(1);
+        lld1.addLast(2);
+        lld1.addLast(3);
+        assertThat(lld1.get(-1)).isNull();
+        assertThat(lld1.get(27138)).isNull();
+    }
+
+    @Test
+    /** Test get method in index 0 / 1 for a General List. */
+    public void testGeneralList() {
+        Deque61B<Integer> lld1 = new LinkedListDeque61B<>();
+        lld1.addLast(1);
+        lld1.addLast(2);
+        int excepted0 = 1;
+        int excepted1 = 2;
+        assertThat(lld1.get(0)).isEqualTo(excepted0);
+        assertThat(lld1.get(1)).isEqualTo(excepted1);
+    }
+
+    @Test
+    /** Test getRecursive method when index is out of bounding for Empty list. */
+    public void testGetRecursiveInEmptyList() {
+        Deque61B<Integer> lld1 = new LinkedListDeque61B<>();
+        assertThat(lld1.getRecursive(-1)).isNull();
+        assertThat(lld1.getRecursive(27138)).isNull();
+    }
+
+    @Test
+    /** Test getRecursive method when index is out of bounding for NO-Empty list. */
+    public void testGetRecursiveInNoEmptyList() {
+        Deque61B<Integer> lld1 = new LinkedListDeque61B<>();
+        lld1.addLast(1);
+        lld1.addLast(2);
+        lld1.addLast(3);
+        assertThat(lld1.getRecursive(-1)).isNull();
+        assertThat(lld1.getRecursive(27138)).isNull();
+    }
+
+    @Test
+    /** Test getRecursive method in index 0 / 1 for a General List. */
+    public void testGetRecursiveGeneralList() {
+        Deque61B<Integer> lld1 = new LinkedListDeque61B<>();
+        lld1.addLast(1);
+        lld1.addLast(2);
+        int excepted0 = 1;
+        int excepted1 = 2;
+        assertThat(lld1.getRecursive(0)).isEqualTo(excepted0);
+        assertThat(lld1.getRecursive(1)).isEqualTo(excepted1);
+    }
 }

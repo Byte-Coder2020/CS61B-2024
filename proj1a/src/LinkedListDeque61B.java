@@ -2,7 +2,7 @@ import java.util.List;
 import java.util.ArrayList; // import the ArrayList class
 
 public class LinkedListDeque61B<T> implements Deque61B<T> {
-    private StuffNode sentinel;
+    private StuffNode<T> sentinel;
     private int size;
 
     public class StuffNode<T> {
@@ -51,12 +51,15 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
 
     @Override
     public boolean isEmpty() {
+        if (sentinel.next == sentinel) {
+            return true;
+        }
         return false;
     }
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
@@ -71,11 +74,35 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
 
     @Override
     public T get(int index) {
-        return null;
+        if (index < 0 || index >= size || isEmpty()) {
+            return null;
+        }
+        StuffNode<T> ptr = sentinel.next;
+        T target = null;
+        int current = 0;
+        while (ptr != sentinel) {
+            if (index == current){
+                target = ptr.item;
+                break;
+            }
+            ptr = ptr.next;
+            current++;
+        }
+        return target;
     }
 
     @Override
     public T getRecursive(int index) {
-        return null;
+        if (index < 0 || index >= size || isEmpty()) {
+            return null;
+        }
+        return (T) getRecursive(index, sentinel.next);
+    }
+
+    private T getRecursive(int index, StuffNode<T> rest) {
+        if (index == 0) {
+            return rest.item;
+        }
+        return (T) getRecursive(index - 1, rest.next);
     }
 }

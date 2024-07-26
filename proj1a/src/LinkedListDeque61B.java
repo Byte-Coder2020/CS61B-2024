@@ -1,13 +1,13 @@
 import java.util.List;
 
 public class LinkedListDeque61B<T> implements Deque61B<T> {
-
+    private StuffNode sentinel;
+    private int size;
 
     public class StuffNode<T> {
-        public T item;
-        public StuffNode prev;
-        public StuffNode next;
-
+        private T item;
+        private StuffNode prev;
+        private StuffNode next;
         public StuffNode(T i, StuffNode p, StuffNode n) {
             item = i;
             prev = p;
@@ -15,12 +15,18 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
         }
     }
     public LinkedListDeque61B() {
-
+        sentinel = new StuffNode(null, null, null);
+        sentinel.prev = sentinel;
+        sentinel.next = sentinel.prev;
+        size = 0;
     }
 
     @Override
     public void addFirst(T x) {
-
+        StuffNode newNode = new StuffNode(x, sentinel, sentinel.next);
+        sentinel.next.prev = newNode;
+        sentinel.next = newNode;
+        size++;
     }
 
     @Override

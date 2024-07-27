@@ -1,3 +1,4 @@
+import edu.princeton.cs.algs4.In;
 import jh61b.utils.Reflection;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -141,5 +142,60 @@ public class LinkedListDeque61BTest {
         int excepted1 = 2;
         assertThat(lld1.getRecursive(0)).isEqualTo(excepted0);
         assertThat(lld1.getRecursive(1)).isEqualTo(excepted1);
+    }
+
+    @Test
+    public void remove_first() {
+        Deque61B<Integer> lld1 = new LinkedListDeque61B<>();
+        lld1.addLast(1);
+        lld1.addLast(2);
+        lld1.removeFirst();
+        assertThat(lld1.toList()).containsExactly(2).inOrder();
+    }
+
+    @Test
+    public void remove_last() {
+        Deque61B<Integer> lld1 = new LinkedListDeque61B<>();
+        lld1.addLast(1);
+        lld1.addLast(2);
+        lld1.removeLast();
+        assertThat(lld1.toList()).containsExactly(1).inOrder();
+    }
+
+    @Test
+    public void remove_first_to_empty() {
+        Deque61B<Integer> lld1 = new LinkedListDeque61B<>();
+        assertThat(lld1.removeFirst()).isNull();
+    }
+
+    @Test
+    public void remove_last_to_empty() {
+        Deque61B<Integer> lld1 = new LinkedListDeque61B<>();
+        assertThat(lld1.removeLast()).isNull();
+    }
+
+    @Test
+    public void remove_first_to_one() {
+        Deque61B<Integer> lld1 = new LinkedListDeque61B<>();
+        lld1.addLast(1);
+        lld1.addLast(2);
+        lld1.addLast(3);
+        lld1.addLast(4);
+        lld1.removeFirst();
+        lld1.removeFirst();
+        lld1.removeFirst();
+        assertThat(lld1.toList()).containsExactly(4).inOrder();
+    }
+
+    @Test
+    public void remove_last_to_one() {
+        Deque61B<Integer> lld1 = new LinkedListDeque61B<>();
+        lld1.addLast(1);
+        lld1.addLast(2);
+        lld1.addLast(3);
+        lld1.addLast(4);
+        lld1.removeLast();
+        lld1.removeLast();
+        assertThat(lld1.toList()).containsExactly(1, 2).inOrder();
     }
 }

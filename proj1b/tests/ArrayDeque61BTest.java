@@ -72,4 +72,70 @@ public class ArrayDeque61BTest {
         ad1.addLast("b");
     }
 
+
+    @Test
+    @DisplayName("Check removeFirst works")
+    public void removeFirstTest() {
+
+    }
+
+    @Test
+    @DisplayName("Check removeLast works")
+    public void removeLastTest() {
+
+    }
+
+    @Test
+    @DisplayName("remove first to empty")
+    public void removeFirstTOEmptyTest() {
+
+    }
+
+    @Test
+    @DisplayName("remove last to empty")
+    public void removeLastTOEmptyTest() {
+
+    }
+
+    @Test
+    @DisplayName("remove first to one")
+    public void removeFirstTOOneTest() {
+
+    }
+
+    @Test
+    @DisplayName("remove last to one")
+    public void removeLastToOneTest() {
+
+    }
+
+    @Test
+    @DisplayName("remove first to trigger resize")
+    public void removeFirstToTriggerResizeTest() {
+
+    }
+
+    @Test
+    @DisplayName("remove last to trigger resize")
+    public void removeLastToTriggerResizeTest() {
+
+    }
+
+    @Test
+    @DisplayName("Get valid test")
+    public void getVaildTest() {
+
+    }
+
+    @Test
+    @DisplayName("Check out of bound on a large index")
+    public void getObbLargeTest() {
+
+    }
+
+    @Test
+    @DisplayName("Check out out of bound on a negative index")
+    public void getObbNeg() {
+
+    }
 }

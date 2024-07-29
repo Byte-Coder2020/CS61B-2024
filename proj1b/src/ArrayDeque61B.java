@@ -1,9 +1,17 @@
 import java.util.List;
+import java.lang.Math;
+import java.util.Objects;
 
 public class ArrayDeque61B<T> implements Deque61B<T> {
-
+    private T[] items;
+    private int size;
+    private int nextFirst;
+    private int nextLast;
     public ArrayDeque61B() {
-
+        items = (T[]) new Object[8];
+        size = 0;
+        nextFirst = 4;
+        nextLast = 5;
     }
     /**
      * Add {@code x} to the front of the deque. Assumes {@code x} is never null.
@@ -12,7 +20,9 @@ public class ArrayDeque61B<T> implements Deque61B<T> {
      */
     @Override
     public void addFirst(T x) {
-
+        items[nextFirst] = x;
+        nextFirst -= 1;
+        size += 1;
     }
 
     /**
@@ -22,7 +32,9 @@ public class ArrayDeque61B<T> implements Deque61B<T> {
      */
     @Override
     public void addLast(T x) {
-
+        items[nextLast] = x;
+        nextLast += 1;
+        size += 1;
     }
 
     /**

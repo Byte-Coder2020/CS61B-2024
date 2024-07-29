@@ -20,4 +20,23 @@ public class ArrayDeque61BTest {
          assertWithMessage("Found fields that are not array or primitives").that(badFields).isEmpty();
      }
 
+    @Test
+    @DisplayName("addFirst works on an empty deque")
+    public void addFirstFromEmptyTest() {
+         Deque61B<String> ad1 = new ArrayDeque61B<>();
+         ad1.addFirst("a");
+         String excepted = "a";
+         assertThat(ad1.toList()).containsExactly(excepted);
+    }
+
+    @Test
+    @DisplayName("addLast works on an empty deque")
+    public void addLastFromEmptyTest() {
+        Deque61B<String> ad1 = new ArrayDeque61B<>();
+        ad1.addLast("a");
+        String excepted = "a";
+        assertThat(ad1.toList()).containsExactly(excepted);
+    }
+
+
 }

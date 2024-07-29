@@ -38,5 +38,38 @@ public class ArrayDeque61BTest {
         assertThat(ad1.toList()).containsExactly(excepted);
     }
 
+    @Test
+    @DisplayName("addFirst works on an no-empty deque")
+    public void addFirstFromNoEmptyTest() {
+        Deque61B<String> ad1 = new ArrayDeque61B<>();
+        ad1.addFirst("a");
+        ad1.addFirst("b");
+        assertThat(ad1.toList()).containsExactly("a", "b");
+    }
+
+    @Test
+    @DisplayName("addLast works on an no-empty deque")
+    public void addLastFromNoEmptyTest() {
+        Deque61B<String> ad1 = new ArrayDeque61B<>();
+        ad1.addLast("a");
+        ad1.addLast("b");
+        assertThat(ad1.toList()).containsExactly("a", "b");
+    }
+
+    @Test
+    @DisplayName("addFirst works when called on a full underlying array")
+    public void addFirstTriggerResize() {
+        Deque61B<String> ad1 = new ArrayDeque61B<>();
+        ad1.addFirst("a");
+        ad1.addFirst("b");
+    }
+
+    @Test
+    @DisplayName("addLast works when called on a full underlying array")
+    public void addLastTriggerResize() {
+        Deque61B<String> ad1 = new ArrayDeque61B<>();
+        ad1.addLast("a");
+        ad1.addLast("b");
+    }
 
 }

@@ -138,4 +138,52 @@ public class ArrayDeque61BTest {
     public void getObbNeg() {
 
     }
+
+    @Test
+    @DisplayName("Check that size works")
+    public void sizeTest() {
+
+    }
+
+    @Test
+    @DisplayName("Add some elements to the deque and remove them all, then check size works")
+    public void sizeAfterRemoveToEmptyTest() {
+
+    }
+
+    @Test
+    @DisplayName("Remove from an empty deque, then check that size still works")
+    public void sizeAfterRemoveFromEmptyTest() {
+
+    }
+
+    @Test
+    @DisplayName("Check that size works on empty deque")
+    public void isEmptyTrueTest() {
+
+    }
+
+    @Test
+    @DisplayName("Check that size works on a non - empty deque")
+    public void isEmptyFalseTest() {
+
+    }
+
+    @Test
+    @DisplayName("Check that toList works with empty ArrayDeque")
+    public void toListEmptyTest() {
+
+    }
+
+    @Test
+    @DisplayName("Check that toList works with non-empty ArrayDeque")
+    public void toListNoemptyTest() {
+
+    }
+
+    @Test
+    @DisplayName("Trigger a resize up and then a resize down in the same test")
+    public void resizeUpAndResizeDownTest() {
+
+    }
 }

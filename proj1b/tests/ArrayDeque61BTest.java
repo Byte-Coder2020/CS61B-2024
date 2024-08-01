@@ -118,37 +118,72 @@ public class ArrayDeque61BTest {
     @Test
     @DisplayName("remove last to trigger resize")
     public void removeLastToTriggerResizeTest() {
-
+        Deque61B<Integer> ad1 = new ArrayDeque61B<>();
+        ad1.addFirst(7);
+        ad1.addLast(8);
+        ad1.addLast(9);
+        ad1.addFirst(6);
+        ad1.addFirst(5);
+        ad1.addLast(10);
+        ad1.addFirst(4);
+        ad1.addLast(11);
+        ad1.addFirst(3);
     }
 
     @Test
     @DisplayName("Get valid test")
     public void getVaildTest() {
-
+        Deque61B<Integer> ad1 = new ArrayDeque61B<>();
+        ad1.addFirst(7);
+        ad1.addLast(8);
+        ad1.addLast(9);
+        ad1.addFirst(6);
+        assertThat(ad1.get(6)).isEqualTo(9);
     }
 
     @Test
     @DisplayName("Check out of bound on a large index")
     public void getObbLargeTest() {
-
+        Deque61B<Integer> ad1 = new ArrayDeque61B<>();
+        ad1.addFirst(7);
+        ad1.addLast(8);
+        ad1.addLast(9);
+        ad1.addFirst(6);
+        assertThat(ad1.get(100)).isNull();
     }
 
     @Test
     @DisplayName("Check out out of bound on a negative index")
     public void getObbNeg() {
-
+        Deque61B<Integer> ad1 = new ArrayDeque61B<>();
+        ad1.addFirst(7);
+        ad1.addLast(8);
+        assertThat(ad1.get(-1)).isNull();
     }
 
     @Test
     @DisplayName("Check that size works")
     public void sizeTest() {
-
+        Deque61B<Integer> ad1 = new ArrayDeque61B<>();
+        ad1.addFirst(7);
+        int numberExcepted = 1;
+        assertThat(ad1.size()).isEqualTo(numberExcepted);
     }
 
     @Test
     @DisplayName("Add some elements to the deque and remove them all, then check size works")
     public void sizeAfterRemoveToEmptyTest() {
-
+        Deque61B<Integer> ad1 = new ArrayDeque61B<>();
+        ad1.addFirst(7);
+        ad1.addLast(8);
+        ad1.addLast(9);
+        ad1.addFirst(10);
+        ad1.removeFirst();
+        ad1.removeFirst();
+        ad1.removeLast();
+        ad1.removeLast();
+        int numberExcepted = 0;
+        assertThat(ad1.size()).isEqualTo(numberExcepted);
     }
 
     @Test
@@ -160,13 +195,16 @@ public class ArrayDeque61BTest {
     @Test
     @DisplayName("Check that size works on empty deque")
     public void isEmptyTrueTest() {
-
+        Deque61B<Integer> ad1 = new ArrayDeque61B<>();
+        assertThat(ad1.isEmpty()).isTrue();
     }
 
     @Test
     @DisplayName("Check that size works on a non - empty deque")
     public void isEmptyFalseTest() {
-
+        Deque61B<Integer> ad1 = new ArrayDeque61B<>();
+        ad1.addFirst(5);
+        assertThat(ad1.isEmpty()).isFalse();
     }
 
     @Test
